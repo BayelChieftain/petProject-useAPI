@@ -7,6 +7,7 @@ input.addEventListener('keydown', function(event) {
     
     if (event.key.toLowerCase() === 'enter') {
       //проверка  console.log('its work')
+       
         loadImg();
     }
 })
@@ -14,10 +15,11 @@ input.addEventListener('keydown', function(event) {
 function loadImg(){
     removeImages();
 
-    const url = 'https://api.unspalsh.com/search/photos/?query='+input.value+'&per_page=9&client_id=SouHY7Uul-OxoMl3LLc0NkxUtjIrKwf3tsGk1JaiVo';
+    const url = 'https://api.unsplash.com/search/photos?query='+input.value+'&per_page=30&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo';
 
     fetch(url)
     .then(response => {
+      //проверка  console.log(response)
         if (response.ok) 
           return response.json();
          else
