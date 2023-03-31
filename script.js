@@ -20,24 +20,18 @@ function loadImg(){
     fetch(url)
     .then(response => {
       //проверка  console.log(response)
-        if (response.ok) 
-          return response.json();
-         else
-            alert(response.status)
+      if (!response.ok) throw Error(response.statusText);
+      return response.json();
     })
 
     .then(data => {
         const imageNodes = [];
-        for(let i = 0; 1 < data.results.lenght; i++){
+        for(let i = 0; 1 < data.results.length; i++) {
             imageNodes[i] = document.createElement('div');
             imageNodes[i].className = 'img';
-            imageNodes[i].style.backgroundImage = 'url('+data.results[i].urls.raw+')';
-            imageNodes[i].addEventListener('onclick', function(){
-                window.open(data.results[i].links.dowland,
-                    '_blank');
-            })
+            imageNodes[i].style.backgroundImage = "url("+data.results[i].urls.raw + "&w=1366&h=768" +")";
+            imageNodes[i].addEventListener('dbclick', () => window.open(data.results[i].links.download,'_blank'));
             grid.appendChild(imageNodes[i]);
-
         }
     })
 }
@@ -51,7 +45,7 @@ function dayNightMode() {
     const data = new Date();
     const hour = data.getHours();
 
-    if (hour >= 7 && hour <= 20){
+    if (hour >= 7 && hour < 20){
         document.body.style.backgroundColor = 'whitesmoke';
         document.body.style.color = 'black';
     } else {
