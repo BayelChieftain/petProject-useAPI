@@ -16,6 +16,7 @@ header{
 .container{
     width: 95%;
     margin: auto;
+    margin-top: 35px;
 }
 
 .nav{
