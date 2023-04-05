@@ -9,8 +9,16 @@ body{
     color: white;
 }
 
+i {
+    padding: 0 13px 0 0;
+}
+
+input {
+    margin-left: 10px;
+}
+
 header{
-    border-bottom: 5px solid orange;
+    border-bottom: 5px solid  rgb(255, 0, 0);
 }
 
 .container{
@@ -51,8 +59,8 @@ header{
 }
 
 input:focus{
-    box-shadow: 0 0 5px orange;
-    border: 2px solid orange;
+    box-shadow: 0 0 5px rgb(230, 6, 6);
+    border: 2px solid rgb(255, 0, 0);
 }
 
 .search-box i{
@@ -60,10 +68,10 @@ input:focus{
     position: absolute;
     top: 25%;
     right: 4%;
-    transition: 0.8s;
+    transition: 0.4s;
 }
 .search-box i:hover{
-    color: orange;
+    color:  rgb(255, 0, 0);
 }
 
 .grid{
