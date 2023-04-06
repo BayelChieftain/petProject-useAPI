@@ -1,5 +1,10 @@
 const input = document.getElementById('input');
 const grid = document.getElementsByClassName('grid')[0];
+const errWindow = document.getElementsByClassName('err-window')[0];
+
+//  проверка console.log(errWindow)
+
+// errWindow.style.display = 'block';
 
 window.addEventListener('load', dayNightMode)
 
@@ -12,7 +17,7 @@ input.addEventListener('keydown', function(event) {
     }
 })
 
-function loadImg(){
+async function loadImg(){
     removeImages();
 
     const url = 'https://api.unsplash.com/search/photos?query='+input.value+'&per_page=30&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo';
@@ -20,12 +25,13 @@ function loadImg(){
     fetch(url)
     .then(response => {
       //проверка  console.log(response)
-      if (!response.ok) throw Error(response.statusText);
+      
+      if (!response.ok) throw Error(response.statusText)
       return response.json();
     })
 
     .then(data => {
-        const imageNodes = [];
+          const imageNodes = [];
         for(let i = 0; 1 < data.results.length; i++) {
             imageNodes[i] = document.createElement('div');
             imageNodes[i].className = 'img';
@@ -33,7 +39,8 @@ function loadImg(){
             imageNodes[i].addEventListener('dbclick', () => window.open(data.results[i].links.download,'_blank'));
             grid.appendChild(imageNodes[i]);
         }
-    })
+     }) 
+    
 }
 
 function removeImages(){

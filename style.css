@@ -9,9 +9,9 @@ body{
     color: white;
 }
 
-i {
+/* i {
     padding: 0 13px 0 0;
-}
+} */
 
 input {
     margin-left: 10px;
@@ -72,6 +72,20 @@ input:focus{
 }
 .search-box i:hover{
     color:  rgb(255, 0, 0);
+}
+
+.err-window {
+    background-color: rgb(247, 233, 219);
+    width: 100%;
+    text-align: center;
+    height: 25em;
+    border-radius: 20px;
+    border: solid 1px #424141;
+    display: none;
+}
+
+.err-window h2 {
+  padding-top: 7em;
 }
 
 .grid{
